@@ -9,3 +9,4 @@ src/.ipynb_checkpoints/
 src/div_observer/__pycache__/
 src/instrument_storage/__pycache__/
 src/tests/__pycache__/
+src/tests/check.csv
