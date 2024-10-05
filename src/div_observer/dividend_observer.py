@@ -60,13 +60,23 @@ class DividendObserver:
 
             for dividend in dividends:
                 current_record = {
+                    'figi': instrument.figi,
                     'stock_name': instrument.name,
                     'currency': instrument.currency,
-                    'figi': instrument.figi,
-                    'payment_date': dividend.payment_date,
-                    'declared_date': dividend.declared_date,
-                    'last_buy_date': dividend.last_buy_date
+                    #'payment_date': dividend.payment_date,
+                    #'declared_date': dividend.declared_date,
+                    'last_buy_date': dividend.last_buy_date,
+                    'data_date': datetime.now(),
+                    'close_price': self.unit_former(dividend.close_price),
+                    'yield_value': self.unit_former(dividend.yield_value),
+                    'dividend_net': self.unit_former(dividend.dividend_net)
                 }
                 self.record_former.add_record(current_record)
         self.record_former.save_csv()
         return self
+
+    def unit_former(self, unit_object):
+        if str(unit_object.nano).count('0') > 1:
+            return f'{unit_object.units}.{str(unit_object.nano).replace("0", "")}'
+        else:
+            return f'{unit_object.units}.{unit_object.nano}'

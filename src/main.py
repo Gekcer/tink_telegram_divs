@@ -8,7 +8,5 @@ def prepare_dividend_record():
     div_obs.work()
 
 if __name__ == '__main__':
-    # storage = InstrumentStorage()
-    # div_obs = DividendObserver(storage)
-    # div_obs.form_instrument_storage()
     prepare_dividend_record()
+

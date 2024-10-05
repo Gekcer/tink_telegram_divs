@@ -8,9 +8,11 @@ class RecordFormer:
                 'stock_name',
                 'currency',
                 'figi',
-                'payment_date',
-                'declared_date',
-                'last_buy_date'
+                'last_buy_date',
+                'data_date',
+                'close_price',
+                'yield_value',
+                'dividend_net'
             ]
         )
 
